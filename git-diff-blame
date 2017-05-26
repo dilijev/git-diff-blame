@@ -30,9 +30,9 @@ chdir($git_root) or die "$!";
 my ($oldrev, $newrev) = @ARGV;
 $oldrev ||= 'HEAD';
 if ($newrev) {
-	open($diff, '-|', 'git', '--no-pager', 'diff', $oldrev, $newrev) or die;
+	open($diff, '-|', 'git', '--no-pager', 'diff', '-w', $oldrev, $newrev) or die;
 } else {
-	open($diff, '-|', 'git', '--no-pager', 'diff', $oldrev) or die;
+	open($diff, '-|', 'git', '--no-pager', 'diff', '-w', $oldrev) or die;
 }
 
 my ($pre, $post);
